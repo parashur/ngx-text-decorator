@@ -1,0 +1,79 @@
+<form [formGroup]="form">
+<div class="container-fluid p-0">
+  <div class="col-lg-12 p-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-nav m-auto">
+        <p class="title">ngx-text-decorator</p>
+      </div>
+    </nav>
+  </div>
+  <div class="col-lg-12 px-3">
+    <div class="col-sm-12 mb-3 pb-2 pt-5">
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <h3 class="heading">Documentation:</h3>
+            <p>Sample quote is displayed below, with <code><span>{{form?.value?.searchKey}}</span></code> as the <i>searchKey</i>
+              the custom style properties are listed to the right, its properties are applied to the search key. All
+              other
+              propties are listed below.</p>
+            <table class="table table-light table-bordered pt-3">
+              <thead>
+                <th>
+                  Properties
+                </th>
+                <th>
+                  Description
+                </th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let doc of document;">
+                  <td>
+                    {{
+                      doc?.title
+                    }}
+                  </td>
+                  <td>
+                    {{
+                      doc?.description
+                    }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col px-5">
+            <span class="text-area pl-5">
+              <div [formGroup]="form">
+                <p class="subtitle">
+                  <code>customStyle = {{'{'}}</code>
+                </p>
+                <div class="col px-5" formGroupName="colorStyle">
+                  <p>bold <input type="checkbox" formControlName="bold" id="bold"></p>
+                  <p>italic <input type="checkbox" formControlName="italic" id="italic">
+                  </p>
+                  <p>color <input type="text" formControlName="color" id="color"></p>
+                  <p>background <input type="text" formControlName="background" id="background">
+                  </p>
+                  <p>weight <input type="number" formControlName="weight" id="weight"></p>
+                </div>
+                <p class="subtitle"><code>{{'}'}}</code></p>
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <label for="searchKeyValue">Change the value of <code>searchText</code> below</label>
+        <input type="text" class="form-control"
+        placeholder="search key" formControlName="searchKey"  name ="searchKey" id="searchKeyValue" value="watson" />
+      </div>
+    </div>
+    <div class="col px-4">
+      <p class="content" ngxTextDecorator [data]="actualText" [searchKey]="searchKey" [customStyle]="customStyle"
+        [caseSensitive]="false">
+      </p>
+    </div>
+  </div>
+</div>
+</form>

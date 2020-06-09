@@ -1,0 +1,34 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "text-decoration": [
+        "dist/text-decoration/text-decoration",
+        "dist/text-decoration"
+      ],
+      "ngx-text-decoration": [
+        "dist/ngx-text-decoration/ngx-text-decoration",
+        "dist/ngx-text-decoration"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableIvy": false,
+    "fullTemplateTypeCheck": false,
+    "strictInjectionParameters": true
+  }
+}
